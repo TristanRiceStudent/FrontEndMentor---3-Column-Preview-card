@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+/*
+Table of contents
+
+1. Global styles
+
+2. Card container
+
+3. Category columns
+    3.1. Global column class
+    3.2. Individual column classes
+    3.3. Inner column elements
+*/
+
+/*
+1. Global styles
+*/
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    padding: 50px 0 50px 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background: hsl(0, 0%, 95%);
+    place-items: center;
+}
+
+@media only screen and (max-width: 730px) {
+    html {
+        width: auto;
+        height: auto;
+    }
+}
+
+.lexend {
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.big-shoulders {
+    font-family: "Big Shoulders Display", cursive;
+}
+
+:root {
+    --bright-orange: hsl(31, 77%, 52%);
+    --dark-cyan: hsl(184, 100%, 22%);
+    --very-dark-cyan: hsl(179, 100%, 13%);
+}
+
+/*
+2. Card container
+*/
+.container {
+    width: 1125px;
+    height: 50%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "first second third";
+}
+
+@media only screen and (max-width: 1150px) {
+    .container {
+        width: 750px;
+        height: auto;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+            "first first second second"
+            ". third third .";
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .container {
+        width: 375px;
+        height: auto;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "first"
+            "second"
+            "third";
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .container {
+        width: 90%;
+    }
+}
+
+/*
+3. Column styles
+*/
+
+/*
+3.1. Global column class
+*/
+
+.column {
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: space-between;
+    padding: 50px 120px 50px 70px;
+}
+
+@media only screen and (max-width: 430px) {
+    .column {
+        padding: 50px 15vw 50px 13vw;
+    }
+}
+
+
+/*
+3.2. Individual column classes
+*/
+
+.sedans {
+    background: var(--bright-orange, orange);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    grid-area: first;
+}
+
+.suvs {
+    background: var(--dark-cyan, blue);
+    grid-area: second
+}
+
+.luxury {
+    background: var(--very-dark-cyan, darkblue);
+    grid-area: third;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media only screen and (max-width: 1150px) {
+    .suvs {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .luxury {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .sedans {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 10px;
+    }
+
+    .suvs {
+        border-radius: 0;
+    }
+}
+
+/*
+3.3. Inner column elements
+*/
+
+.logo {
+    width: 5rem;
+    height: auto;
+}
+
+.button--sedan {
+    --btn-color: var(--bright-orange);
+}
+
+.button--suvs {
+    --btn-color: var(--dark-cyan);
+}
+
+.button--luxury {
+    --btn-color: var(--very-dark-cyan);
+}
+
+.button {
+    background: white;
+    border-radius: 50px;
+    border: none;
+    border: 2px solid white;
+    padding: 10px;
+    color: var(--btn-color);
+    width: 130px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background: var(--btn-color);
+    color: white;
+}
+
+.filler-div {
+    flex-basis: clamp(30px, 3vw, 40px);
+}
+
+.text {
+    font-size: 1rem;
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+.heading {
+    color: hsl(0, 0%, 95%);
+    font-size: 3rem;
+    font-weight: 700;
+}
